@@ -2,18 +2,15 @@ import React from "react";
 
 import "./Button.css";
 
-class Button extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: props.children,
-    };
-  }
-
-  render() {
-    return <div className="button">{this.state.value}</div>;
-  }
-}
+const Button = (props) => {
+  const handleClick = (e) => {
+    props.onClick(e.target.innerHTML);
+  };
+  return (
+    <div className="button" onClick={handleClick}>
+      {props.children}
+    </div>
+  );
+};
 
 export default Button;
