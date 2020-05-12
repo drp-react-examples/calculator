@@ -1,27 +1,8 @@
 import React from "react";
+import Loader from "./Loader";
+import CalculatorRoot from "./CalculatorRoot";
 
 import "./Calculator.css";
-
-class Loader extends React.Component {
-  componentDidMount() {
-    console.log("loader Component did mount");
-  }
-
-  componentWillUnmount() {
-    console.log("loader Component will unmount");
-  }
-
-  render() {
-    console.log("loader render");
-
-    return <div className="calculator">loading....</div>;
-  }
-}
-
-const CalculatorRoot = (props) => {
-  console.log("render root", props);
-  return <div className="calculator">{props.children}</div>;
-};
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -53,11 +34,7 @@ class Calculator extends React.Component {
       return <Loader />;
     }
 
-    return (
-      <CalculatorRoot name="Calculadora 1" initialValue={{ value: 0 }}>
-        I'm a calculator
-      </CalculatorRoot>
-    );
+    return <CalculatorRoot>I'm a calculator</CalculatorRoot>;
   }
 }
 
