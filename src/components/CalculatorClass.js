@@ -14,8 +14,12 @@ const actions = {
 };
 
 const normalize = (value, digit) => {
-  if (digit === "." && value.indexOf(".") >= 0) {
-    return value;
+  if (digit === ".") {
+    if (value.indexOf(".") >= 0) {
+      return value;
+    } else if (value === "0") {
+      return value + digit;
+    }
   }
   return (value === "0" ? "" : value) + digit;
 };
